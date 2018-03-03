@@ -54,13 +54,13 @@ function initialize() {
     cities.forEach(function (data) {
         jQuery("#focusCities").append('<option value="' + [data.lat, data.lng, data.zoom].join('|') + '">' + data.name + '</option>');
     });
+    var mapDiv = document.getElementById('googft-mapCanvas');
     var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
         (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
     if (isMobile) {
         var viewport = document.querySelector("meta[name=viewport]");
         viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
     }
-    var mapDiv = document.getElementById('googft-mapCanvas');
     mapDiv.style.width = isMobile ? '100%' : '100%';
     mapDiv.style.height = isMobile ? '100%' : '500px';
     map = new google.maps.Map(mapDiv, {
@@ -85,22 +85,22 @@ function initialize() {
         }
     });
 
-    if (isMobile) {
-        var legend = document.getElementById('googft-legend');
-        var legendOpenButton = document.getElementById('googft-legend-open');
-        var legendCloseButton = document.getElementById('googft-legend-close');
-        legend.style.display = 'none';
-        legendOpenButton.style.display = 'block';
-        legendCloseButton.style.display = 'block';
-        legendOpenButton.onclick = function () {
-            legend.style.display = 'block';
-            legendOpenButton.style.display = 'none';
-        }
-        legendCloseButton.onclick = function () {
-            legend.style.display = 'none';
-            legendOpenButton.style.display = 'block';
-        }
-    }
+    // if (isMobile) {
+    //     var legend = document.getElementById('googft-legend');
+    //     var legendOpenButton = document.getElementById('googft-legend-open');
+    //     var legendCloseButton = document.getElementById('googft-legend-close');
+    //     legend.style.display = 'none';
+    //     legendOpenButton.style.display = 'block';
+    //     legendCloseButton.style.display = 'block';
+    //     legendOpenButton.onclick = function () {
+    //         legend.style.display = 'block';
+    //         legendOpenButton.style.display = 'none';
+    //     }
+    //     legendCloseButton.onclick = function () {
+    //         legend.style.display = 'none';
+    //         legendOpenButton.style.display = 'block';
+    //     }
+    // }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
