@@ -85,22 +85,6 @@ function initialize() {
         }
     });
 
-    // if (isMobile) {
-    //     var legend = document.getElementById('googft-legend');
-    //     var legendOpenButton = document.getElementById('googft-legend-open');
-    //     var legendCloseButton = document.getElementById('googft-legend-close');
-    //     legend.style.display = 'none';
-    //     legendOpenButton.style.display = 'block';
-    //     legendCloseButton.style.display = 'block';
-    //     legendOpenButton.onclick = function () {
-    //         legend.style.display = 'block';
-    //         legendOpenButton.style.display = 'none';
-    //     }
-    //     legendCloseButton.onclick = function () {
-    //         legend.style.display = 'none';
-    //         legendOpenButton.style.display = 'block';
-    //     }
-    // }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
