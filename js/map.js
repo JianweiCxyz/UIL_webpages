@@ -62,7 +62,7 @@ function initialize() {
         viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
     }
     mapDiv.style.width = isMobile ? '100%' : '100%';
-    mapDiv.style.height = isMobile ? '100%' : '500px';
+    mapDiv.style.height = isMobile ? '500px' : '500px';
     map = new google.maps.Map(mapDiv, {
         center: new google.maps.LatLng(35.509676719418415, -95.47241826181306),
         zoom: 4,
