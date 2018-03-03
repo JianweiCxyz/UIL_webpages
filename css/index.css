@@ -1,0 +1,33 @@
+.legend {
+  list-style: none;
+}
+
+.legend li {
+  float: left;
+  margin-right: 10px;
+}
+
+.legend span {
+  border: 1px solid #ccc;
+  float: left;
+  width: 12px;
+  height: 12px;
+  margin: 2px;
+}
+
+.properlyserved {
+  background-color: #d6d2d4;
+}
+
+.transitdessert {
+  background-color: #f8971f;
+}
+
+.transitoasis {
+  background-color: #579d42;
+}
+
+div#googft-mapCanvas {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
