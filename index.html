@@ -153,16 +153,16 @@
       margin: 2px;
     }
 
-    .legend .properlyserved {
-      background-color: #d6d2d4ff;
+    .properlyserved {
+      background-color: #d6d2d4;
     }
 
-    .legend .transitdessert {
-      background-color: #f8971fff;
+    .transitdessert {
+      background-color: #f8971f;
     }
 
-    .legend .transitoasis {
-      background-color: #579d42ff;
+    .transitoasis {
+      background-color: #579d42;
     }
   </style>
 
@@ -174,7 +174,8 @@
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="UILlogo.svg" alt="" width="150" height="50"></a>
+        <img src="UILlogo.svg" alt="" width="150" height="50">
+      </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -195,18 +196,25 @@
 
     <h1 class="my-4">Transit Deserts in 51 US Cities</h1>
     <h5>By
-      <a href="https://soa.utexas.edu/resources/urban-information-lab">The Urban Information Lab</a> - The University of Texas at Austin</h2>
-      <ul class="legend row">
-        <li>
-          <span class="properlyserved"></span> Properly Served</li>
-        <li>
-          <span class="transitoasis"></span> Transit Oasis</li>
-        <li>
-          <span class="transitdessert"></span> Transit Desert</li>
-      </ul>
-      <select id="focusCities"> </select>
-      <div id="googft-mapCanvas"></div>
+      <a href="https://soa.utexas.edu/resources/urban-information-lab">The Urban Information Lab</a> - The University of Texas at Austin</h5>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <select id="focusCities"> </select>
+      </div>
+      <div class="col-sm-8">
+        <ul class="legend">
+          <li>
+            <span class="properlyserved"></span> Properly Served</li>
+          <li>
+            <span class="transitoasis"></span> Transit Oasis</li>
+          <li>
+            <span class="transitdessert"></span> Transit Desert</li>
+        </ul>
+      </div>
+      <div id="googft-mapCanvas" class="container"></div>
       <hr />
+    </div>
 
   </div>
 
