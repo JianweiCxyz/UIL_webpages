@@ -76,7 +76,7 @@ function initialize() {
       heatmap: { enabled: false },
       query: {
         select: "col2",
-        from: "1kfOX2HX-d4V8g3aRbOwHnwkuDIQd4X_POx2uv1qg",
+        from: "1yXCpxYvby65yErCbGKLi35uBPxE4kD4erD6p3EL3",
         where: ""
       },
       options: {
