@@ -19,15 +19,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/map.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115055953-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115055953-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'UA-115055953-1');
-</script>
+    gtag('config', 'UA-115055953-1');
+  </script>
 
 </head>
 
@@ -36,8 +36,8 @@
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="Pictures/UIL_LogoV2.svg" alt="" width="110" height="50"> Transit Desert Research</a>
+      <a class="navbar-brand" href="index.html" >
+        <img src="Pictures/UIL_LogoV2.svg" alt="" width="110" height="50" class="d-none d-sm-inline"> Transit Desert Research</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -58,7 +58,9 @@
 
     <h1 class="my-4">Transit Deserts in Major US Cities</h1>
     <h5>By
-	    <a href="https://soa.utexas.edu/resources/urban-information-lab">The Urban Information Lab</a> - <a href="https://www.utexas.edu/">The University of Texas at Austin </a></h5>
+      <a href="https://soa.utexas.edu/resources/urban-information-lab">The Urban Information Lab</a> -
+      <a href="https://www.utexas.edu/">The University of Texas at Austin </a>
+    </h5>
 
     <div class="row">
       <div class="col-sm-4">
@@ -83,7 +85,11 @@
   <!-- Footer -->
   <footer class="py-4 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Urban Information Lab - University of Texas at Austin · <a href="#"><a href="mailto:urbaninformationlab@gmail.com"> Contact Us · <a href="#">Back to top</a></p>
+      <p class="m-0 text-center text-white">Copyright &copy; Urban Information Lab - University of Texas at Austin ·
+        <a href="#">
+          <a href="mailto:urbaninformationlab@gmail.com"> Contact Us ·
+            <a href="#">Back to top</a>
+      </p>
     </div>
     <!-- /.container -->
   </footer>
