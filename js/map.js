@@ -34,6 +34,7 @@ var cities = [
     { lat: 28.538335, lng: -81.379237, zoom: 10, name: "Orlando" },
     { lat: 39.952584, lng: -75.165222, zoom: 10, name: "Philadelphia" },
     { lat: 33.392442, lng: -111.889890, zoom: 10, name: "Phoenix, Tempe, Mesa" },
+    { lat: 40.4314779, lng: -80.0507125, zoom: 10, name: "Pittsburgh" },
     { lat: 45.523062, lng: -122.676481, zoom: 10, name: "Portland" },
     { lat: 35.899168, lng: -78.863640, zoom: 10, name: "Raleigh-Durham" },
     { lat: 38.581572, lng: -121.494400, zoom: 10, name: "Sacramento" },
@@ -72,17 +73,17 @@ function initialize() {
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend'));
 
     layer = new google.maps.FusionTablesLayer({
-      map: map,
-      heatmap: { enabled: false },
-      query: {
-        select: "col2",
-        from: "1yXCpxYvby65yErCbGKLi35uBPxE4kD4erD6p3EL3",
-        where: ""
-      },
-      options: {
-        styleId: 2,
-        templateId: 2
-      }
+        map: map,
+        heatmap: { enabled: false },
+        query: {
+            select: "col2",
+            from: "15PYI8UsPhQR2r0dCp0vWFxTxlwb08CJeu7F2DkD5",
+            where: ""
+        },
+        options: {
+            styleId: 2,
+            templateId: 2
+        }
     });
 }
 
