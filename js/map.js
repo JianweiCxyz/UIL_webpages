@@ -73,17 +73,17 @@ function initialize() {
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend'));
 
     layer = new google.maps.FusionTablesLayer({
-        map: map,
-        heatmap: { enabled: false },
-        query: {
-            select: "col2",
-            from: "15PYI8UsPhQR2r0dCp0vWFxTxlwb08CJeu7F2DkD5",
-            where: ""
-        },
-        options: {
-            styleId: 2,
-            templateId: 2
-        }
+      map: map,
+      heatmap: { enabled: false },
+      query: {
+        select: "col2",
+        from: "1oZGlrBmrRHFubCa20c1py35so5zIbSklpeWjxL4g",
+        where: ""
+      },
+      options: {
+        styleId: 2,
+        templateId: 2
+      }
     });
 }
 
