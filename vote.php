@@ -2,8 +2,7 @@
 $geoid = intval($_GET['geoid']);
 $vote = intval($_GET['vote']);
 
-# $con = mysqli_connect('mysql.utweb.utexas.edu','utw10792','NVM8z61FI9SIXFWa','utw10792');
-$con = mysqli_connect('localhost','cjw','zyf','UILTest');
+$con = mysqli_connect('mysql.utweb.utexas.edu','utw10792','password','utw10792');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
@@ -18,7 +17,8 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 } else {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
-$sql="INSERT INTO VoteLog VALUES ($geoid, $vote, \"$ip\", now());";
+$sql="INSERT INTO VoteLog VALUES ($geoid, $vote, \"$ip\", now()) ON DUPLICATE KEY UPDATE
+	vote='$vote', time=now();";
 $result = mysqli_query($con, $sql);
 
 if (mysqli_query($con, $sql)) {
