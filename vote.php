@@ -25,7 +25,7 @@ if (mysqli_query($con, $sql)) {
     echo "OK";
 }
 else {
-	echo "Error"
+	echo "Error";
 }
 mysqli_close($con);
 ?>
