@@ -85,6 +85,16 @@ function initialize() {
         templateId: 2
       }
     });
+google.maps.event.addListener(layer, 'click', function(e) {
+	e.infoWindowHtml = "<div class='googft-info-window'> <b>Transit Desert Score:</b>" + e.row["Transit Desert Score"].value +
+	"<br> <b>Total Population:</b>" + e.row["Total Population"].value + "<br> <b>Total Transit dependent population:</b>" +
+	e.row["Total Transit dependent population"].value + "<br> <b>Ratio of Transit Dependent Population:</b>" +
+				e.row["Ratio of Transit Dependent Population"].value + "<br>  <button type=\"button\" " +
+		"id='" + e.row["geoid"].value + "-1'" + 
+		" onclick=\"vote('" + e.row["geoid"].value + "', 1)\">This is a transit desert!</button>" + 
+		"<br>  <button type=\"button\"" + "id='" + e.row["geoid"].value + "-0'" + 
+		 " onclick=\"vote('" + e.row["geoid"].value + "', 0)\">This is not a transit desert!</button> </div>";
+});
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -96,3 +106,14 @@ jQuery(document).on('change', '#focusCities', function () {
     map.setZoom(newzoom);
     map.setCenter({ lat: newlat, lng: newlng });
 });
+function vote(geoid, opinion) {
+    var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200 && this.statusText == "OK") {
+		document.getElementById(geoid + "-" + opinion).style.borderStyle = "inset";
+		document.getElementById(geoid + "-" + (1 - opinion)).style.borderStyle = "outset";
+	    }
+    };
+    xmlhttp.open("GET", "vote.php?geoid=" + geoid + "&vote=" + opinion);
+    xmlhttp.send();
+}
