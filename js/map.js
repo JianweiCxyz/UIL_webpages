@@ -86,9 +86,7 @@ function initialize() {
       }
     });
 google.maps.event.addListener(layer, 'click', function(e) {
-	e.infoWindowHtml = "<div class='googft-info-window'> <b>Transit Desert Score:</b>" + e.row["Transit Desert Score"].value +
-	"<br> <b>Total Population:</b>" + e.row["Total Population"].value + "<br> <b>Total Transit dependent population:</b>" +
-	e.row["Total Transit dependent population"].value + "<br> <b>Ratio of Transit Dependent Population:</b>" +
+	e.infoWindowHtml = "<div class='googft-info-window'> <b>Ratio of Transit Dependent Population:</b>" +
 				e.row["Ratio of Transit Dependent Population"].value + "<br>  <button type=\"button\" " +
 		"id='" + e.row["geoid"].value + "-1'" + 
 		" onclick=\"vote('" + e.row["geoid"].value + "', 1)\">This is a transit desert!</button>" + 
