@@ -1,0 +1,37 @@
+<div class="googft-info-window">
+    <b>Ratio of Transit Dependent Population:</b>54.39%
+    <br>
+    <form action="welcome.php" method="post">
+        Have a different opinion? </br>
+        <input onclick="initVote(true);" type="radio" name="opinion" value="1">This is a transit desert!</input>
+        </br>
+        <input onclick="initVote(false);" type="radio" name="opinion" value="0">This is
+        <b>not</b> a transit desert!</input>
+        </br>
+        <div id="isDesert" style="display:none">
+            Why do you think this blockgroup is a transit desert?</br>
+            <input type="radio" name="whyIsDesert" value="1">Not having enough transit lines and stops.</input>
+            </br>
+            <input type="radio" name="whyIsDesert" value="2">Having enough transit lines and stops but too many people need to take transit.</input>
+            </br>
+            <input type="radio" name="whyIsDesert" value="3">Transit service is not frequent e.g. have to wait long time for bus, no service on weekends.</input>
+            </br>
+            <input type="radio" name="whyIsDesert" value="4">Too many transfers to important locations within the cities.</input>
+            </br>
+            <textarea cols="50" rows="3" name="reason" placeholder="Other reasons (less than 280 characters):"></textarea>
+        </div>
+        <div id="notDesert">
+            Why do you think this blockgroup is
+            <b>not</b> a transit desert?</br>
+            <input type="radio" name="whyNotDesert" value="1">Enough transit lines, stops and have frequent services.</input>
+            </br>
+            <input type="radio" name="whyNotDesert" value="2">Most people have a car and nobody ride or want to ride transit.</input>
+            </br>
+            <input type="radio" name="whyNotDesert" value="3">Without transit I can conveniently get where I want to by other methods (e.g. Uber, Lfyt, Walk, Bike).</input>
+            </br>
+            <textarea cols="50" rows="3" name="reason" placeholder="Other reasons (less than 280 characters):"></textarea>
+        </div>
+        <input type="submit" value="submit">
+    </form>
+</div>
+</div>
