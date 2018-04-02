@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 25, 2018 at 11:58 AM
+-- Generation Time: Apr 01, 2018 at 10:34 PM
 -- Server version: 5.7.21-0ubuntu0.16.04.1
 -- PHP Version: 7.0.28-0ubuntu0.16.04.1
 
@@ -23,25 +23,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `VoteLog`
+-- Table structure for table `Votes`
 --
 
-CREATE TABLE `VoteLog` (
+CREATE TABLE `Votes` (
   `geoid` bigint(20) NOT NULL,
   `vote` tinyint(1) NOT NULL,
-  `src_ip` varchar(20) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `why` tinyint(4) NOT NULL,
+  `reason` varchar(300) DEFAULT NULL,
+  `time` datetime NOT NULL,
+  `client_ip` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `VoteLog`
---
-ALTER TABLE `VoteLog`
-  ADD UNIQUE KEY `geoid` (`geoid`,`src_ip`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
