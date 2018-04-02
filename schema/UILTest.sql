@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 01, 2018 at 10:34 PM
--- Server version: 5.7.21-0ubuntu0.16.04.1
--- PHP Version: 7.0.28-0ubuntu0.16.04.1
+-- Host: 127.0.0.1:3306
+-- Generation Time: Apr 02, 2018 at 05:00 PM
+-- Server version: 5.7.19
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `UILTest`
+-- Database: `utw10792`
 --
 
 -- --------------------------------------------------------
@@ -26,14 +28,19 @@ SET time_zone = "+00:00";
 -- Table structure for table `Votes`
 --
 
-CREATE TABLE `Votes` (
+DROP TABLE IF EXISTS `Votes`;
+CREATE TABLE IF NOT EXISTS `votes` (
   `geoid` bigint(20) NOT NULL,
   `vote` tinyint(1) NOT NULL,
-  `why` tinyint(4) NOT NULL,
-  `reason` varchar(300) DEFAULT NULL,
+  `option1` tinyint(1) NOT NULL,
+  `option2` tinyint(1) NOT NULL,
+  `option3` tinyint(1) NOT NULL,
+  `option4` tinyint(1) NOT NULL,
+  `reason` varchar(280) NOT NULL,
   `time` datetime NOT NULL,
-  `client_ip` varchar(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `ip` varchar(16) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
