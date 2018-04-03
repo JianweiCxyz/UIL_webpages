@@ -17,7 +17,7 @@
 <?php
 $geoid = intval($_POST['geoid']);
 $vote = intval($_POST['opinion']);
-$options = array(0, 0, 0, 0);
+$options = array(0, 0, 0, 0, 0);
 
 if (array_key_exists('why', $_POST)) {
     $why = ($_POST['why']);
@@ -47,7 +47,7 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 } else {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
-$sql = "INSERT INTO Votes VALUES ($geoid, $vote, $options[0], $options[1], $options[2], $options[3], \"$reason\", now(), \"$ip\");";
+$sql = "INSERT INTO Votes VALUES ($geoid, $vote, $options[0], $options[1], $options[2], $options[3], $options[4],\"$reason\", now(), \"$ip\");";
 
 if (mysqli_query($con, $sql)) {
     $response = array(
