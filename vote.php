@@ -53,14 +53,14 @@ if (mysqli_query($con, $sql)) {
     $response = array(
         'Thank you, You are a wonderful citizen.',
         'Thank you, you are doing a great work for your city and community.',
-        'Thank you, you are like a NBA All Star to us.',
-        'Thank you for your great knowledge about local transit .',
+        'Thank you, you are like an All-Star to us.',
+        'Thank you for your amazing knowledge of local transit.',
         'Great job, well done.',
         'Thank you, your opinions will help our research greatly.',
         'These are great answers, thank you.',
-        'Thank you for your Superbowl MVP level answers.',
-        'Thank you, you are our rock star.',
-        'Thank you, You are a wonderful human being. ',
+        'Thank you for your MVP answers.',
+        'You rock!',
+        'Absolutely amazing!',
     );
     echo $response[array_rand($response, 1)];
 } else {
