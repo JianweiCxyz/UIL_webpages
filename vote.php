@@ -4,11 +4,19 @@
 
 <body>
     <script type="text/javascript">
+        var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
+            (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
         function countdown() {
             var i = document.getElementById('counter');
             i.innerHTML = parseInt(i.innerHTML) - 1;
-            if (parseInt(i.innerHTML) <= 0)
-                window.close();
+            if (parseInt(i.innerHTML) <= 0) {
+                if(isMobile) {
+                    var win = window.open("","_self");
+                    win.close();
+                }
+                else
+                    window.close();
+            }
         }
         setInterval(function () {
             countdown();
@@ -32,7 +40,7 @@ if ($vote == 0) {
     $reason = $_POST['reasonYes'];
 }
 
-$con = mysqli_connect('mysql.utweb.utexas.edu','utw10792','password','utw10792');
+$con = mysqli_connect('mysql.utweb.utexas.edu', 'utw10792', 'password', 'utw10792');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
