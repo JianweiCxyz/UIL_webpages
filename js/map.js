@@ -86,14 +86,8 @@ function initialize() {
       }
     });
 google.maps.event.addListener(layer, 'click', function(e) {
-	e.infoWindowHtml = "<div class='googft-info-window'> <b>Transit Desert Score:</b>" + e.row["Transit Desert Score"].value +
-	"<br> <b>Total Population:</b>" + e.row["Total Population"].value + "<br> <b>Total Transit dependent population:</b>" +
-	e.row["Total Transit dependent population"].value + "<br> <b>Ratio of Transit Dependent Population:</b>" +
-				e.row["Ratio of Transit Dependent Population"].value + "<br>  <button type=\"button\" " +
-		"id='" + e.row["geoid"].value + "-1'" + 
-		" onclick=\"vote('" + e.row["geoid"].value + "', 1)\">This is a transit desert!</button>" + 
-		"<br>  <button type=\"button\"" + "id='" + e.row["geoid"].value + "-0'" + 
-		 " onclick=\"vote('" + e.row["geoid"].value + "', 0)\">This is not a transit desert!</button> </div>";
+	geoid = e.row["geoid"].value;
+    e.infoWindowHtml = ' <div class="googft-info-window" align="left"> <b>Ratio of Transit Dependent Population:</b>' + e.row["Ratio of Transit Dependent Population"].value + ' <br> <form action="vote.php" method="post" target="_blank"> Have a different opinion? </br> <input onclick="initVote(true);" type="radio" name="opinion" value="1" id="yes"> <label for="yes">This is a transit desert!</label> </br> <input onclick="initVote(false);" type="radio" name="opinion" value="0" id="no"> <label for="no">This is <b>not</b> a transit desert!</label> </br> <div id="isDesert" style="display:none"> Why do you think this blockgroup is a transit desert?</br> <input type="checkbox" name="why[]" value="1" id="yes1"> <label for="yes1">Walking and biking are difficult. </label> </br> <input type="checkbox" name="why[]" value="2" id="yes2"> <label for="yes2">The buses or trains are usually too crowded.</label> </br> <input type="checkbox" name="why[]" value="3" id="yes3"> <label for="yes3">Transit service is not frequent enough.</label> </br> <input type="checkbox" name="why[]" value="4" id="yes4"> <label for="yes4">Too many transfers to important locations. </label> </br> <input type="checkbox" name="why[]" value="5" id="yes5"> <label for="yes5">It is difficult to drive places.</label></br> <textarea cols="50" rows="3" name="reasonYes" placeholder="Other reasons (Please explain with less than 280 characters):"></textarea> </div> <div id="notDesert" style="display:none"> Why do you think this blockgroup is <b>not</b> a transit desert?</br> <input type="checkbox" name="why[]" value="1" id="no1"> <label for="no1">There are enough transit lines and stops.</label> </br> <input type="checkbox" name="why[]" value="2" id = "no2"> <label for="no2">Most people have cars and the roads are good.</label> </br> <input type="checkbox" name="why[]" value="3" id="no3"> <label for="no3">I can walk and/or bike where I need to go.</label> </br> <input type="checkbox" name="why[]" value="4" id="no4"> <label for="no4">I use a combination of services (walking, biking, Uber etc.) to get where I need to go.</label> </br> <textarea cols="50" rows="3" name="reasonNo" placeholder="Other reasons (Please explain with less than 280 characters):"></textarea> </div> <input type="hidden" name="geoid" value="' + geoid + '"/>	<input type="submit" value="submit"> </form> </div> </div> ';
 });
 }
 
@@ -106,6 +100,10 @@ jQuery(document).on('change', '#focusCities', function () {
     map.setZoom(newzoom);
     map.setCenter({ lat: newlat, lng: newlng });
 });
+function initVote(vote) {
+    document.getElementById("isDesert").style.display = vote ? "inline" : "none";
+    document.getElementById("notDesert").style.display = vote ? "none" : "inline";
+}
 function vote(geoid, opinion) {
     var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
