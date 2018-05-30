@@ -3,38 +3,50 @@ import csv
 from lxml.etree import tostring
 import re
 import pandas
+import sys
+import os
 # replace DB_FILEPATH to the db_exported_file csv
-df = pandas.read_csv("DB_FILEPATH")
+df = pandas.read_csv("../../Master_File.csv")
+file_dir = "../../KML_Files"
 # change the color scheme here
-colors = {
-    "#PolyStyle00": "#a0cc6c99",
-    "#PolyStyle01": "#faead099",
-    "#PolyStyle014": "#db5a2599"
-}
+def color(zscore, valid):
+    zscore = float(zscore)
+    if not valid:
+        return "#6b717e99"
+    elif zscore < -1:
+        return "#b3664599"
+    elif zscore < 1:
+        return "#d3c8b899"
+    else:
+        return "#9bb37a99"
+
 def marshall(s, type):
     try:
         return type(s)
     except TypeError:
         return 0.
 geoid_pat = re.compile("<td>GEOID</td>\n\n<td>(.*?)</td>", re.MULTILINE)
-gap_pat = re.compile("<td>Gap</td>\n\n<td>(.*?)</td>", re.MULTILINE)
+geoid_lat = re.compile("<td>INTPTLAT</td>\n\n<td>(.*?)</td>", re.MULTILINE)
+geoid_lon = re.compile("<td>INTPTLON</td>\n\n<td>(.*?)</td>", re.MULTILINE)
 # replace KML_FILEPATH with the path to the kml file to convert
-with open('KML_FILEPATH') as f:
-    root = parser.fromstring(f.read())
-    with open('result.csv', 'wb') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(["name", "color", "location", "geoid", "Transit Desert Score", "Total Population", "Total Transit dependent population",
-                "Ratio of Transit Dependent Population"])
-        for i in root.Document.Folder.Placemark:
-            description = str(i.description)
-            geoid = int(geoid_pat.findall(description)[0])
-            gap = float(gap_pat.findall(description)[0])
-            zscore = "{:.2f}".format(gap)
-            row = df[df["Geo_ID"]==geoid]
-            total_pop = marshall(row["Total_Pop"], int)
-            td_pop = marshall(row["TD_Pop"], int)
-            td_ratio = marshall(row["Percent_TD"], float)
-            td_ratio = "{:.2f}%".format(td_ratio)
-            row = [i.name, colors[i.styleUrl], tostring(i.MultiGeometry), geoid, zscore, total_pop, td_pop, td_ratio]
-            writer.writerow(row)
+with open('data.csv', 'wb') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(["color", "location", "geoid", "Ratio of Transit Dependent Population", "lat", "lon", "zscore"])
+    for file in os.listdir(file_dir):
+        print "Converting {}...".format(file)
+        with open(os.path.join(file_dir, file, "doc.kml")) as f:
+            root = parser.fromstring(f.read())
+            for i in root.Document.Folder.Placemark:
+                description = str(i.description)
+                geoid = int(geoid_pat.findall(description)[0])
+                lat = float(geoid_lat.findall(description)[0])
+                lon = float(geoid_lon.findall(description)[0])
+                row = df[df["Geo_ID"]==geoid]
+                assert len(row) == 1 or len(row) == 0
+                valid = len(row) == 1
+                zscore = "{:.2f}".format(marshall(row["Gap_Zscore"], float))
+                td_ratio = marshall(row["Percent_TD"], float)
+                td_ratio = "{:.2f}%".format(td_ratio)
+                row = [color(zscore, valid), tostring(i.MultiGeometry), geoid, td_ratio, lat, lon, zscore]
+                writer.writerow(row)
 
