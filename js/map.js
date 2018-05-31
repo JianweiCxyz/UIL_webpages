@@ -1,4 +1,5 @@
 var dist = {};
+// State -> docid, latlng, zoomlevel
 dist["Choose Your State"] = [0, [36.2371868, -113.781447], 4];
 dist["California"] = [1, [36.778261, -119.4179324], 7];
 dist["Maine"] = [2, [45.253783, -69.4454689], 7];
@@ -51,19 +52,14 @@ dist["Rhode Island"] = [16, [41.5800945, -71.4774291], 7];
 dist["Kentucky"] = [16, [37.8393332, -84.2700179], 7];
 dist["Colorado"] = [17, [39.5500507, -105.7820674], 7];
 dist["Washington, D.C."] = [17, [38.9071923, -77.0368707], 11];
-var states = ['California', 'Maine', 'Nevada', 'North Carolina', 'Hawaii', 'Oregon', 'Delaware', 'Montana', 'Texas',
-    'Vermont', 'Kansas', 'Pennsylvania', 'New York', 'Tennessee', 'West Virginia', 'Wyoming', 'Georgia', 'Florida', 'Alaska',
-    'Utah', 'Illinois', 'Ohio', 'Missouri', 'Washington', 'Alabama', 'Mississippi', 'Arkansas', 'Nebraska', 'Massachusetts',
-    'New Jersey', 'Maryland', 'South Carolina', 'Idaho', 'New Hampshire', 'Wisconsin', 'Minnesota', 'Louisiana', 'Iowa',
-    'Connecticut', 'South Dakota', 'Virginia', 'Indiana', 'Arizona', 'Oklahoma', 'New Mexico', 'Michigan', 'North Dakota',
-    'Rhode Island', 'Kentucky', 'Colorado', 'Washington, D.C.'
-]
+var states = Object.keys(dist);
 states.sort();
 states.splice(0, 0, "Choose Your State");
 
 var map;
 var layer;
 var src = Array(18).fill("1oZGlrBmrRHFubCa20c1py35so5zIbSklpeWjxL4g");
+// add the docids here
 src[11] = "1MjzTpkz_jwQWtrf0f7G_3Z_I_hEPWOMVdm0OENlI";
 src[12] = "1ttfm8GoY3cPpiqiW398jqqWAPYzsVOG6AyisB0xY";
 src[13] = "17kwAk9jmstGMyfNPklgvryjxmmBpiEHhoDVmx-nq";
