@@ -60,6 +60,16 @@ var map;
 var layer;
 var src = Array(18).fill("1oZGlrBmrRHFubCa20c1py35so5zIbSklpeWjxL4g");
 // add the docids here
+src[1] = "1Cwgeu2bPxSUsCzi2MJmdJDGmLTjpoLM3lwsUEKoC";
+src[2] = "194trG3YjuZ0dD315TS2QRWoBHju6b-2PjH21HGdY";
+src[3] = "1qfsjdas8ikD6qq4P6HAcAvrBI9kkUQQpkTy4BLkT";
+src[4] = "1zVh6IWKSNSaD-4Te6WLTGs1swb0-i6hgQ6Zrb2T_";
+src[5] = "1hWG5Qjm4Q-y5ELd_YkhnmqgoGP74PCY4R5z7gGyF";
+src[6] = "14RdKcyhw8BM88_FJANQE11jcpMwEwk5nHYhFYtGR";
+src[7] = "1srtm_K2UJgwl29ysY4pyoNzzl-2EUorGwiMSN9OG";
+src[8] = "1wmKc0XiU2VEaQkEP20W4anzuDtLCqXK6OEiWW9_E";
+src[9] = "1lui4KuIiJPhnys_oJ-68tObNOohcUgQUaJyD4qd6";
+src[10] = "1YHtij0VpmgsjpcPQkjAqcuYdF6cJlov44kWndxYw";
 src[11] = "1MjzTpkz_jwQWtrf0f7G_3Z_I_hEPWOMVdm0OENlI";
 src[12] = "1ttfm8GoY3cPpiqiW398jqqWAPYzsVOG6AyisB0xY";
 src[13] = "17kwAk9jmstGMyfNPklgvryjxmmBpiEHhoDVmx-nq";
